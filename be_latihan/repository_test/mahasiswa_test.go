@@ -29,7 +29,6 @@ func TestInsertMahasiswa(t *testing.T) {
 		Prodi:  "D4 Teknik Informatika",
 		Alamat: "Cimahi",
 		Email:  "tesuser@gmail.com",
-		NoHP:   "081234567890",
 		Hobi:   []string{"Coding", "Futsal"},
 	}
 
@@ -57,7 +56,7 @@ func TestGetAllMahasiswa(t *testing.T) {
 func TestGetMahasiswaByNPM(t *testing.T) {
 	setupTest(t)
 
-	npm := int64(1775482342493834000) // Gunakan NPM yang ada di DB untuk test (disesuaikan)
+	npm := int64(1775481576589394100) // Gunakan NPM yang ada di DB untuk test (disesuaikan)
 
 	mhs, err := repository.GetMahasiswaByNPM(npm)
 	if err != nil {
@@ -73,7 +72,7 @@ func TestGetMahasiswaByNPM(t *testing.T) {
 func TestDeleteMahasiswa(t *testing.T) {
 	setupTest(t)
 
-	npm := int64(1775482342493834000) // Gunakan NPM yang ada di DB untuk test (disesuaikan)
+	npm := int64(1775481576589394100) // Gunakan NPM yang ada di DB untuk test (disesuaikan)
 
 	err := repository.DeleteMahasiswa(npm)
 	if err != nil {
