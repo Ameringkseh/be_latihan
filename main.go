@@ -32,7 +32,7 @@ func main() {
 
 	//swagger configuration
 	swaggerHost := os.Getenv("SWAGGER_HOST")
-	if swaggerHost != "" {
+	if swaggerHost == "" {
 		swaggerHost = "127.0.0.1:3000"
 	}
 	docs.SwaggerInfo.Host = swaggerHost
