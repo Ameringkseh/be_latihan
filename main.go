@@ -2,15 +2,16 @@ package main
 
 import (
 	"be_latihan/config"
+	"be_latihan/docs"
 	_ "be_latihan/docs"
 	"be_latihan/model"
 	"be_latihan/router"
+	"os"
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
-
 )
 
 // @title API Praktikum 13 - be_latihan
@@ -28,6 +29,13 @@ func main() {
 	app := fiber.New()
 	app.Use(cors.New())
 	app.Use(logger.New())
+
+	//swagger configuration
+	swaggerHost := os.Getenv("SWAGGER_HOST")
+	if swaggerHost != "" {
+		swaggerHost = "127.0.0.1:3000"
+	}
+	docs.SwaggerInfo.Host = swaggerHost
 
 	//inisialisasi database
 	config.InitDB()
